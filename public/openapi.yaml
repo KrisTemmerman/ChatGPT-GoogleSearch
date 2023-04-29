@@ -48,7 +48,7 @@ paths:
                         
                 example:
                   results:
-                    - title: 'GitHub:' Let's build from here · GitHub
+                    - title: "GitHub: Let's build from here · GitHub"
                       link: https://www.github.com/
                       snippet: GitHub is where over 100 million developers shape the future of software, together. Contribute to the open source community, manage your Git repositories, ...
                     - title: GitHub - Wikipedia
