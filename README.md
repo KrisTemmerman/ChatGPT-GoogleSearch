@@ -1,7 +1,7 @@
 # Google Search Plugin API
 
 This is an API for a Google Search plugin that can be used with chat-gpt. It allows users to search Google and fetch HTML content from the results.
-I opted for t3-stack because the input and output of the plugin are pretty simple.
+I opted for t3-stack because the input and output of the plugin are pretty simple
 
 
 ## Get your API keys from Google
