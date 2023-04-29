@@ -1,7 +1,7 @@
 # Google Search Plugin API
 
 This is an API for a Google Search plugin that can be used with chat-gpt. It allows users to search Google and fetch HTML content from the results.
-I opted for t3-stack because the input and output of the plugin are pretty simple
+I opted for t3-stack because the input and output of the plugin are pretty simple.
 
 
 ## Get your API keys from Google
@@ -12,6 +12,19 @@ Use these in your .env
 
 This plugin is basically a port from https://github.com/Sogody/google-chatgpt-plugin 
 
+## Install the plugin
+
+```shell
+    pnpm install // install all the packages
+    pnpm dev // starts the nextjs dev server
+```
+
+## Testing the plugin
+
+Go to `http://localhost:3000/swagger` and test the search endpoint.
+
+
+## installing the plugin
 ## OpenAPI Specification
 
 This API is documented using the OpenAPI specification (version 3.0.3). The specification file is located in the `yaml` file named `google-search-plugin-api.yaml`.
