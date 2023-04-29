@@ -25,6 +25,9 @@ Go to `http://localhost:3000/swagger` and test the search endpoint.
 
 
 ## installing the plugin
+![Gif that describes how to install the plugin](https://github.com/KrisTemmerman/ChatGPT-GoogleSearch/blob/main/public/installplugin.gif?raw=true)
+
+
 ## OpenAPI Specification
 
 This API is documented using the OpenAPI specification (version 3.0.3). The specification file is located in the `yaml` file named `google-search-plugin-api.yaml`.
