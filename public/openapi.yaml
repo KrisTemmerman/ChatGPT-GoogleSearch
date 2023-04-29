@@ -21,7 +21,7 @@ paths:
           required: true
           schema:
             type: string
-          example: python
+          example: github
       responses:
         '200':
           description: Successful operation
@@ -48,12 +48,12 @@ paths:
                         
                 example:
                   results:
-                    - title: Welcome to Python.org
-                      link: https://www.python.org/
-                      snippet: The official home of the Python Programming Language...
-                    - title: Python (programming language) - Wikipedia
-                      link: https://en.wikipedia.org/wiki/Python_(programming_language)
-                      snippet: Python is an interpreted, high-level, general-purpose programming language...
+                    - title: 'GitHub:' Let's build from here · GitHub
+                      link: https://www.github.com/
+                      snippet: GitHub is where over 100 million developers shape the future of software, together. Contribute to the open source community, manage your Git repositories, ...
+                    - title: GitHub - Wikipedia
+                      link: https://en.wikipedia.org/wiki/GitHub
+                      snippet: GitHub, Inc is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus ...
         '400':
           description: Bad request
           content:

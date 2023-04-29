@@ -1,28 +1,66 @@
-# Create T3 App
+# Google Search Plugin API
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This is an API for a Google Search plugin that can be used with chat-gpt. It allows users to search Google and fetch HTML content from the results.
+I opted for t3-stack because the input and output of the plugin are pretty simple.
 
-## What's next? How do I make an app with this?
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Get your API keys from Google
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Create API credentials: https://console.cloud.google.com/apis/credentials
+Get your Programmable Search Engine Key: https://programmablesearchengine.google.com/controlpanel/create
+Use these in your .env
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+This plugin is basically a port from https://github.com/Sogody/google-chatgpt-plugin 
 
-## Learn More
+## OpenAPI Specification
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+This API is documented using the OpenAPI specification (version 3.0.3). The specification file is located in the `yaml` file named `google-search-plugin-api.yaml`.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Getting Started
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Servers
 
-## How do I deploy this?
+This API has one server, which is located at `http://localhost:3000`.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+### Paths
+
+This API has one path, which is `/api/search`. 
+
+#### `GET /api/search`
+
+This endpoint searches Google using the provided query and returns the search results, along with the inner text of the first link. 
+
+##### Parameters
+
+The endpoint requires one parameter, which is the `q` parameter. This parameter is a query string that represents the search query. 
+
+##### Responses
+
+This endpoint has three possible responses:
+
+- `200`: Successful operation. Returns an array of search results, with each result containing the title, link, and snippet of the search result.
+- `400`: Bad request. This occurs when no query is provided.
+- `default`: Error fetching search results.
+
+### Example
+
+An example response from this API is shown below:
+
+```json
+{
+    "results": [
+        {
+            "title": "GitHub: Let's build from here · GitHub",
+            "link": "https://www.github.com/",
+            "snippet": "GitHub is where over 100 million developers shape the future of software, together. Contribute to the open source community, manage your Git repositories, ..."
+        },
+        {
+            "title": "GitHub - Wikipedia",
+            "link": "https://en.wikipedia.org/wiki/GitHub",
+            "snippet": "GitHub, Inc is an Internet hosting service for software development and version control using Git. It provides the distributed version control of Git plus ..."
+        }
+    ]
+}
+```
+## License
+This API is released under the MIT License.
