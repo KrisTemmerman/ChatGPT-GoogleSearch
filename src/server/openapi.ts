@@ -9,6 +9,6 @@ export const openApiDocument = generateOpenApiDocument(appRouter, {
   description: 'Chat GPT Google Search API built using tRPC with Next.js',
   version: '1.0.0',
   baseUrl: 'http://localhost:3000/api',
-  docsUrl: 'https://github.com/krisdevs/chat-gpt-google-search',
+  docsUrl: 'https://github.com/KrisTemmerman/ChatGPT-GoogleSearch',
  
 });
