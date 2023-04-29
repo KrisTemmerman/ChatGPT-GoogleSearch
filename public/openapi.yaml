@@ -1,0 +1,80 @@
+openapi: 3.0.3
+info:
+  title: Google Search Plugin API
+  description: A Google Search plugin for chat-gpt
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/search:
+    get:
+      operationId: searchGet
+      summary: Search Google and fetch HTML content
+      description: |
+        Searches Google using the provided query and returns the search results, along with the inner text of the first link.
+        The first five search results include a summary of the HTML content, while the first three have the entire HTML content returned in the response.
+      parameters:
+        - name: q
+          in: query
+          description: Search query
+          required: true
+          schema:
+            type: string
+          example: python
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          description: The title of the search result
+                        link:
+                          type: string
+                          format: uri
+                          description: The URL of the search result
+                        snippet:
+                          type: string
+                          description: A summary of the HTML content of the search result (available for the first five results)
+                        
+                example:
+                  results:
+                    - title: Welcome to Python.org
+                      link: https://www.python.org/
+                      snippet: The official home of the Python Programming Language...
+                    - title: Python (programming language) - Wikipedia
+                      link: https://en.wikipedia.org/wiki/Python_(programming_language)
+                      snippet: Python is an interpreted, high-level, general-purpose programming language...
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                example:
+                  error: No query provided
+        'default':
+          description: Error fetching search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message
+                example:
+                  error: Error fetching search results
